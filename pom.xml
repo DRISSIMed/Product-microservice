@@ -11,7 +11,7 @@
 	<groupId>com.microservice</groupId>
 	<artifactId>product-microservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>product-microservice</name>
 	<description>microservice product</description>
 	<url/>
