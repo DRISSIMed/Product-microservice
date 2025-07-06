@@ -52,10 +52,10 @@ jobs:
 
       - name: Deploy PostgreSQL to Kubernetes
         run: |
-          kubectl apply -f k8s/postgres/postgres-secret.yaml
-          kubectl apply -f k8s/postgres/postgres-pvc.yaml
-          kubectl apply -f k8s/postgres/postgres-deployment.yaml
-          kubectl apply -f k8s/postgres/postgres-service.yaml
+          kubectl apply -f k8s/postgres-secret.yaml
+          kubectl apply -f k8s/postgres-pvc.yaml
+          kubectl apply -f k8s/postgres-deployment.yaml
+          kubectl apply -f k8s/postgres-service.yaml
 
       - name: Apply Deployment YAML (create if missing)
         run: |
