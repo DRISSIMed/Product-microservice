@@ -48,7 +48,10 @@ jobs:
       - name: Set up KUBECONFIG for k3s
         run: |
           mkdir -p ~/.kube
-          echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > ~/.kube/config
+          echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > ~/.kube/
+
+      - name: Show files in k8s
+        run: ls -l k8s
 
       - name: Deploy PostgreSQL to Kubernetes
         run: |
