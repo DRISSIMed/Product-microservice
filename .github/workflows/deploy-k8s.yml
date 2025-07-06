@@ -50,8 +50,8 @@ jobs:
           mkdir -p ~/.kube
           echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > ~/.kube/config
 
-      - name: Show files in k8s/postgres
-        run: ls -l k8s/postgres/
+      - name: Show files in k8s
+        run: ls -l k8s/
 
       - name: Deploy PostgreSQL to Kubernetes
         run: |
