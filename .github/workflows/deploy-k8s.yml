@@ -50,7 +50,14 @@ jobs:
           mkdir -p ~/.kube
           echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > ~/.kube/config
 
-      - name: Update Deployment image in Kubernetes
+      - name: Apply Deployment YAML (create if missing)
         run: |
-          kubectl set image deployment/product-microservice product-microservice=${{ secrets.DOCKER_USERNAME }}/product-microservice:${{ steps.image_tag.outputs.tag }} --record
-          kubectl rollout status deployment/product-microservice
+          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/product-microservice:${{ steps.image_tag.outputs.tag }}|" k8s/deployment.yaml
+          kubectl apply -f k8s/deployment.yaml   
+
+      - name: Update Deployment Image
+        run: |
+          kubectl set image deployment/product-microservice product-microservice=${{ secrets.DOCKER_USERNAME }}/product-microservice:${{ steps.image_tag.outputs.tag }}
+
+      - name: Apply Kubernetes Service
+       run: kubectl apply -f k8s/service.yaml
