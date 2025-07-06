@@ -60,8 +60,10 @@ jobs:
           kubectl apply -f k8s/postgres-deployment.yaml
           kubectl apply -f k8s/postgres-service.yaml
 
-      - name: Apply Deployment
-        run: kubectl apply -f k8s/deployment.yaml   
+      - name: Apply Deployment YAML (create if missing)
+        run: |
+          sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/product-microservice:${{ steps.image_tag.outputs.tag }}|" k8s/deployment.yaml
+          kubectl apply -f k8s/deployment.yaml   
 
       - name: Update Deployment Image
         run: |
