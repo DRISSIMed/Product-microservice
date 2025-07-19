@@ -25,7 +25,7 @@ jobs:
           mvn verify \
             org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=DRISSIMed_Product-microservice \
-            -Dsonar.organization=your_org_key \
+            -Dsonar.organization=drissimed \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
       - name: Build with Maven
