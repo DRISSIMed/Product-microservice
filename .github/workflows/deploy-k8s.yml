@@ -21,10 +21,13 @@ jobs:
         run: mvn test
 
       - name: Run SonarQube Scan with Maven
-        run: mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-          -Dsonar.projectKey=DRISSIMed_Product-microservice \
-          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn verify \
+            org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Dsonar.projectKey=DRISSIMed_Product-microservice \
+            -Dsonar.organization=your_org_key \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
       - name: Build with Maven
         run: mvn clean package -DskipTests
       - name: Determine image tag
