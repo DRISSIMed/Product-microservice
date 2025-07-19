@@ -44,4 +44,10 @@ public class ProductController {
     public void deleteProduct(@PathVariable Long id) {
         productRepository.deleteById(id);
     }
+
+    @PutMapping("/string")
+    public String helloWorld() {
+      return "helloWrld";
+    }
+
 }
