@@ -47,7 +47,8 @@ public class ProductController {
 
     @GetMapping("/string")
     public String helloWorld() {
-      return "helloWrld";
+      return "helloWrld200ok";
     }
+
 
 }
