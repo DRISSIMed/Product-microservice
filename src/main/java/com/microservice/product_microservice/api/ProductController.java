@@ -45,7 +45,7 @@ public class ProductController {
         productRepository.deleteById(id);
     }
 
-    @PutMapping("/string")
+    @GetMapping("/string")
     public String helloWorld() {
       return "helloWrld";
     }
