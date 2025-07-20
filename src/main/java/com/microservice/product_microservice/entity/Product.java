@@ -1,6 +1,6 @@
 package com.microservice.product_microservice.entity;
 import jakarta.persistence.*;
-import lombok.*;
+
 
 @Entity
 public class Product {
