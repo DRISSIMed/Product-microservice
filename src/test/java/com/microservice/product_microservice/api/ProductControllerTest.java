@@ -116,6 +116,6 @@ class ProductControllerTest {
     void testHelloWorld() throws Exception {
         mockMvc.perform(get("/api/products/string"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("helloWrld200ok"));
+                .andExpect(content().string("helloWrld200okMeriem"));
     }
 }
