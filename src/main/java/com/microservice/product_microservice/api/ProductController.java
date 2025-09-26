@@ -45,15 +45,4 @@ public class ProductController {
         productRepository.deleteById(id);
     }
 
-    @GetMapping("/string")
-    public String helloWorld() {
-      return "helloWrld200okMeriem";
-    }
-
-    @GetMapping("/demo")
-    public String demo() {
-        return "Master big data 2025 Demo";
-    }
-
-
 }
