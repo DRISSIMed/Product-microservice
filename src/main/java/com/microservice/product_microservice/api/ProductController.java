@@ -45,4 +45,9 @@ public class ProductController {
         productRepository.deleteById(id);
     }
 
+    @GetMapping("/demo")
+    public String helloWorld() {
+      return "hello world";
+    }
+
 }

@@ -114,8 +114,8 @@ class ProductControllerTest {
     @Test
     @DisplayName("GET /api/products/string should return hello")
     void testHelloWorld() throws Exception {
-        mockMvc.perform(get("/api/products/string"))
+        mockMvc.perform(get("/api/products/demo"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("helloWrld200okMeriem"));
+                .andExpect(content().string("hello world"));
     }
 }
